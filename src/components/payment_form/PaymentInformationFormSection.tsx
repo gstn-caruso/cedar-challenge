@@ -1,9 +1,10 @@
+import { FormEvent }            from 'react';
 import { SubmitButton }         from '../SubmitButton';
 import { FormInput }            from './form_input/FormInput';
 import { FormStepSectionTitle } from './FormStepSectionTitle';
 
 export function PaymentInformationFormSection() {
-  function handleSubmit() {
+  function handleSubmit(event: FormEvent) {
 
   }
 

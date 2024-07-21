@@ -1,7 +1,8 @@
+import { FormEvent }    from 'react';
 import { SubmitButton } from '../SubmitButton';
 
 interface WelcomeMessageProps {
-  onClick: () => void
+  onClick: (event: FormEvent) => void
 }
 
 export function WelcomeMessage({ onClick }: WelcomeMessageProps) {

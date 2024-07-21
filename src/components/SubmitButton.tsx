@@ -1,5 +1,7 @@
+import { FormEvent }            from 'react';
+
 interface SubmitButtonParams {
-  onClick: () => void;
+  onClick: (event: FormEvent) => void;
   label: string;
 }
 
