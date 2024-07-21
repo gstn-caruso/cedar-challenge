@@ -1,4 +1,8 @@
-export function WelcomeMessage() {
+interface WelcomeMessageProps {
+  onClick: () => void
+}
+
+export function WelcomeMessage({ onClick }: WelcomeMessageProps) {
   return <div className="WelcomeMessage">
     <div className="message-container">
       <h1>Hi, Taylor</h1>
@@ -10,8 +14,7 @@ export function WelcomeMessage() {
           <p>Total due</p>
           <p>$600.00</p>
         </div>
-        <button onClick={ () => {} }>Pay total
-        </button>
+        <button onClick={ onClick }>Pay total</button>
       </div>
     </div>
   </div>
