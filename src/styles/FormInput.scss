@@ -1,0 +1,17 @@
+@import "theme";
+
+.FormInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  color: $grey-text-color;
+  font-weight: 700;
+  font-size: 14px;
+
+  input {
+    border-radius: 8px;
+    border: 1px solid $grey-border;
+    padding: 12px 16px 12px 16px;
+  }
+}
