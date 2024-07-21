@@ -1,0 +1,12 @@
+@import "theme";
+
+.Header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #E7E9EF;
+  background-color: white;
+
+  padding: 0 1rem;
+}

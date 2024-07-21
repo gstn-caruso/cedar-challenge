@@ -1,15 +1,9 @@
-import React from 'react';
-import './styles/App.css';
+import React      from 'react';
+import { Header } from './components/header/Header';
 
 function App() {
   return (
-    <div>
-      <header>
-        <p>
-          Learn React
-        </p>
-      </header>
-    </div>
+    <Header/>
   );
 }
 
