@@ -1,0 +1,25 @@
+@import "theme";
+
+.FormStepSectionTitle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 700;
+
+  span {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $highlight-color;
+    border-radius: 100px;
+    color: white;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
