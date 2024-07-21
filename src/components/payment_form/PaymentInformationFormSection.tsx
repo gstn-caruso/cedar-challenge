@@ -3,7 +3,7 @@ import { SubmitButton }                            from '../SubmitButton';
 import { FormInput }                               from './form_input/FormInput';
 import { FormStepSectionTitle }                    from './FormStepSectionTitle';
 
-interface PaymentFormContentInformation {
+export interface PaymentFormContentInformation {
   cardNumber: string;
   expires: string;
   cvv: string;
@@ -11,7 +11,12 @@ interface PaymentFormContentInformation {
   zip: string;
 }
 
-export function PaymentInformationFormSection() {
+export interface PaymentFormContentInformationProps {
+  onSubmit: (formContent: PaymentFormContentInformation) => void;
+  isActive: boolean
+}
+
+export function PaymentInformationFormSection(props: PaymentFormContentInformationProps) {
   const blankFormInformation: PaymentFormContentInformation = {
     cardNumber: '',
     expires: '',
@@ -26,6 +31,10 @@ export function PaymentInformationFormSection() {
     event.preventDefault();
     console.log(formContent);
     hasSubmitted(false);
+
+    if (Object.values(formContent).every(value => value !== null && value !== '')) {
+      props.onSubmit(formContent);
+    }
   }
 
   const handleChange: ChangeEventHandler = (event) => {
@@ -36,7 +45,7 @@ export function PaymentInformationFormSection() {
   };
 
   return <div className="PaymentInformationFormSection">
-    <FormStepSectionTitle sectionNumber={ 1 } title="Payment Information"/>
+    <FormStepSectionTitle sectionNumber={ 1 } title="Payment Information" isActive={ props.isActive }/>
 
     <form onSubmit={ handleSubmit }>
       <FormInput name={ 'cardNumber' } type={ 'text' } title={ 'Card number' } value={ formContent.cardNumber } onChange={ handleChange }

@@ -5,6 +5,7 @@
   gap: 1rem;
   align-items: center;
   font-weight: 700;
+  opacity: 50%;
 
   span {
     width: 1.5rem;
@@ -14,12 +15,22 @@
     align-items: center;
     justify-content: center;
 
-    background-color: $highlight-color;
     border-radius: 100px;
-    color: white;
+    color: $grey-text-color;
+    background-color: $background-color;
   }
 
   h1 {
     font-size: 20px;
+  }
+
+  &.active {
+    opacity: 1;
+
+    span {
+      background-color: $highlight-color;
+      color: white;
+    }
+
   }
 }
