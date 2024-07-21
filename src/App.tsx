@@ -1,9 +1,14 @@
-import React      from 'react';
-import { Header } from './components/header/Header';
+import React, { useState } from 'react';
+import { Header }          from './components/header/Header';
+import { WelcomeMessage }  from './components/welcome_message/WelcomeMessage';
 
 function App() {
-  return (
-    <Header/>
+  const [userIsFillingForm, setUserIsFillingForm] = useState(false)
+
+  return (<>
+      <Header/>
+      { !userIsFillingForm && <WelcomeMessage/> }
+    </>
   );
 }
 
