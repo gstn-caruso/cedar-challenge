@@ -6,3 +6,8 @@ test('FormInput renders error when isMissing', () => {
   render(<FormInput title={ 'Test input' } type={ 'text' } isMissing={ true } />);
   expect(screen.getByText('This field is required.')).toBeInTheDocument();
 })
+
+test('FormInput do not render error when isMissing is false', () => {
+  render(<FormInput title={ 'Test input' } type={ 'text' } isMissing={ false } />);
+  expect(screen.queryByText('This field is required.')).not.toBeInTheDocument();
+})

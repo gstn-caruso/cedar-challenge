@@ -1,3 +1,5 @@
+import { SubmitButton } from '../SubmitButton';
+
 interface WelcomeMessageProps {
   onClick: () => void
 }
@@ -14,7 +16,7 @@ export function WelcomeMessage({ onClick }: WelcomeMessageProps) {
           <p>Total due</p>
           <p>$600.00</p>
         </div>
-        <button onClick={ onClick }>Pay total</button>
+        <SubmitButton onClick={ onClick } label={"Pay total"}/>
       </div>
     </div>
   </div>
