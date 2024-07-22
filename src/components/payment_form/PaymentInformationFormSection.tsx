@@ -14,7 +14,9 @@ export interface PaymentFormContentInformation {
 
 export interface PaymentFormContentInformationProps {
   onSubmit: (formContent: PaymentFormContentInformation) => void;
-  isActive: boolean
+  isActive: boolean;
+  canEdit: boolean;
+  onEdit: Function;
 }
 
 export function PaymentInformationFormSection(props: PaymentFormContentInformationProps) {
@@ -39,7 +41,7 @@ export function PaymentInformationFormSection(props: PaymentFormContentInformati
   };
 
   return <div className="PaymentInformationFormSection">
-    <FormStepSectionTitle sectionNumber={ 1 } title="Payment Information" isActive={ props.isActive }/>
+    <FormStepSectionTitle sectionNumber={ 1 } title="Payment Information" isActive={ props.isActive } canEdit={ props.canEdit } onEdit={ props.onEdit} />
 
     { props.isActive &&
         <form onSubmit={ handleSubmit }>

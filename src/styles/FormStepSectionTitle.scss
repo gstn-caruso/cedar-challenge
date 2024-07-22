@@ -5,7 +5,8 @@
   gap: 1rem;
   align-items: center;
   font-weight: 700;
-  opacity: 50%;
+  collapse: $grey-text-color;
+  justify-content: space-between;
 
   span {
     width: 1.5rem;
@@ -24,13 +25,29 @@
     font-size: 20px;
   }
 
-  &.active {
-    opacity: 1;
+  button {
+    border: none;
+    background: none;
+    color: $highlight-color;
+    font-weight: 700;
+    height: 100%;
 
+    &:hover {
+      cursor: pointer;
+      color: darken($highlight-color, 25%);
+    }
+  }
+
+  &.active {
     span {
       background-color: $highlight-color;
       color: white;
     }
+  }
 
+  .container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
   }
 }

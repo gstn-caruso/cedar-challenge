@@ -17,7 +17,8 @@ function App() {
   }
 
   function renderForm() {
-    return userIsFillingForm ? <PaymentForm onSubmit={ handleSubmit } onPay={ handlePay }/> :
+    return userIsFillingForm ?
+      <PaymentForm onSubmit={ handleSubmit } onPay={ handlePay }/> :
       <WelcomeMessage onClick={ () => setUserIsFillingForm(true) }/>;
   }
 

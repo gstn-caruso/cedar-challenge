@@ -18,7 +18,8 @@ export function PaymentForm(props: PaymentFormProps) {
   }
 
   return <div data-testid="payment-form" className="PaymentForm">
-    <PaymentInformationFormSection onSubmit={ handleSubmit } isActive={ currentStep === 1 }/>
+    <PaymentInformationFormSection onSubmit={ handleSubmit } isActive={ currentStep === 1 } canEdit={ currentStep === 2 }
+                                   onEdit={ () => setCurrentStep(1) }/>
     <ReviewAndPayFormSection onSubmit={ props.onPay } isActive={ currentStep === 2 } cardNumber={ paymentInformation.cardNumber }/>
   </div>;
 }
