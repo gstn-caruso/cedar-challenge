@@ -13,7 +13,7 @@ export function ConfirmationSection(props: ConfirmationSectionProps) {
   }
 
   return <div className={ 'ConfirmationSection' }>
-    <h2>You’re about to make a payment of <b>{ `$${ props.paymentAmount }` }</b></h2>
+    <h2>You’re about to make a payment of <b>{ `$${ props.paymentAmount.toFixed(2) }` }</b></h2>
     <div className="CreditCardPreview">
       <h3>Payment method</h3>
       <div className="cardPreview">

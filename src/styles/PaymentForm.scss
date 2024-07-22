@@ -6,6 +6,13 @@
   padding: 0;
   list-style: none;
 
+  @media screen and (min-width: 1080px) {
+    max-width: 36rem;
+    margin-top: 2rem;
+    border-radius: 16px;
+    align-self: center;
+  }
+
   li {
     border-bottom: 1px solid #E7E9EF;
     padding: 0 2rem;
