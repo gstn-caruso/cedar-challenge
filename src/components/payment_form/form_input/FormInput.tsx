@@ -1,5 +1,6 @@
 import { ChangeEventHandler, HTMLInputTypeAttribute } from 'react';
 import ReactInputMask                                 from 'react-input-mask';
+import { AlertCircle }                                from './AlertCircle';
 
 interface FormInputProps {
   title: string,
@@ -14,9 +15,11 @@ interface FormInputProps {
 export function FormInput({ name, title, type, isMissing, value, onChange, mask }: FormInputProps) {
   return <label className={ `FormInput` }>
     { title }
-    <ReactInputMask maskChar={ '' } mask={ mask } name={ name } className={ `${ isMissing ? 'error' : '' }` } type={ type } required={ true }
-                    value={ value } onChange={ onChange }>
-    </ReactInputMask>
+    <div className={"input-container"}>
+      <ReactInputMask maskChar={ '' } mask={ mask } name={ name } className={ `${ isMissing ? 'error' : '' }` } type={ type } required={ true }
+                      value={ value } onChange={ onChange }/>
+      { isMissing && <AlertCircle /> }
+    </div>
 
     { isMissing && <p>This field is required.</p> }
   </label>;
