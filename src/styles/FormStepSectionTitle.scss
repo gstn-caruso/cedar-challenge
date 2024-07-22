@@ -5,8 +5,8 @@
   gap: 1rem;
   align-items: center;
   font-weight: 700;
-  collapse: $grey-text-color;
   justify-content: space-between;
+  opacity: 0.5;
 
   span {
     width: 1.5rem;
@@ -38,7 +38,13 @@
     }
   }
 
+  &.completed {
+    opacity: 1;
+  }
+
   &.active {
+    opacity: 1;
+
     span {
       background-color: $highlight-color;
       color: white;

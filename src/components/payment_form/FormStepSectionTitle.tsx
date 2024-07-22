@@ -9,7 +9,7 @@ interface FormStepSectionTitleProps {
 }
 
 export function FormStepSectionTitle(props: FormStepSectionTitleProps) {
-  return <div className={ `FormStepSectionTitle ${ props.isActive ? 'active' : '' }` }>
+  return <div className={ `FormStepSectionTitle ${ props.isActive ? 'active' : '' } ${ props.canEdit ? 'completed' : '' }` }>
     <div className={ 'container' }>
       <span>{ props.sectionNumber }</span>
       <h1>{ props.title }</h1>
