@@ -3,7 +3,7 @@ import { VisaIcon }     from './VisaIcon';
 
 interface ConfirmationSectionProps {
   cardNumber: string,
-  paymentAmount: string,
+  paymentAmount: number,
   onSubmit: Function,
 }
 
@@ -21,6 +21,6 @@ export function ConfirmationSection(props: ConfirmationSectionProps) {
         <p>{ `Card ending in ••••${ lastDigis() }` }</p>
       </div>
     </div>
-    <SubmitButton onClick={ props.onSubmit } label={ `Pay $${ props.paymentAmount }` }/>
+    <SubmitButton onClick={ props.onSubmit } label={ `Pay $${ props.paymentAmount.toFixed(2) }` }/>
   </div>;
 }

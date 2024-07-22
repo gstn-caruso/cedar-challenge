@@ -6,6 +6,7 @@ import { ReviewAndPayFormSection }                                      from './
 interface PaymentFormProps {
   onSubmit: Function;
   onPay: Function;
+  totalAmount: number;
 }
 
 export function PaymentForm(props: PaymentFormProps) {
@@ -17,13 +18,24 @@ export function PaymentForm(props: PaymentFormProps) {
     setPaymentInformation(formContent);
   }
 
+  function handlePay() {
+    props.onPay(paymentInformation);
+  }
+
   return <ul data-testid="payment-form" className="PaymentForm">
     <li>
-      <PaymentInformationFormSection onSubmit={ handleSubmit } isActive={ currentStep === 1 } canEdit={ currentStep === 2 }
-                                     onEdit={ () => setCurrentStep(1) }/>
+      <PaymentInformationFormSection onSubmit={ handleSubmit }
+                                     isActive={ currentStep === 1 }
+                                     canEdit={ currentStep === 2 }
+                                     onEdit={ () => setCurrentStep(1) }
+      />
     </li>
     <li>
-      <ReviewAndPayFormSection onSubmit={ props.onPay } isActive={ currentStep === 2 } cardNumber={ paymentInformation.cardNumber }/>
+      <ReviewAndPayFormSection onSubmit={ handlePay }
+                               isActive={ currentStep === 2 }
+                               cardNumber={ paymentInformation.cardNumber }
+                               totalAmount={ props.totalAmount }
+      />
     </li>
   </ul>;
 }

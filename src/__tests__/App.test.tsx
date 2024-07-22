@@ -1,11 +1,15 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import React                         from 'react';
-import App                           from '../App';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import React                                       from 'react';
+import App                                         from '../App';
 
-test('it renders welcome message', () => {
-  render(<App/>);
+test('it renders welcome message', async () => {
+  await act(async () => {
+    render(<App/>);
+  });
 
-  expectScreenContainsElementWithText('Hi, Taylor');
+  await waitFor(() => {
+    expectScreenContainsElementWithText('Hi, Taylor');
+  })
 });
 
 test('it renders Payment information form after clicking pay button', () => {
@@ -17,8 +21,14 @@ test('it renders Payment information form after clicking pay button', () => {
   expect(paymentForm).toBeInTheDocument();
 })
 
-test('it renders thank you page after submit valid information', () => {
-  render(<App/>);
+test('it renders thank you page after submit valid information', async () => {
+  await act(async () => {
+    render(<App/>);
+  });
+
+  await waitFor(() => {
+    expectScreenContainsElementWithText('Pay total');
+  })
 
   clickButtonWithText('Pay total')
 
@@ -30,11 +40,16 @@ test('it renders thank you page after submit valid information', () => {
 
   clickButtonWithText('Continue');
 
-  expectScreenContainsElementWithText('Card ending in ••••4242');
+  await waitFor(() => {
+    expectScreenContainsElementWithText('Card ending in ••••4242');
+    expectScreenContainsElementWithRegex(/Pay \$600.00/i);
+  })
 
   clickButtonWithRegex(/Pay \$600.00/i);
 
-  expectScreenContainsElementWithText('Thank you for your payment!');
+  await waitFor(() => {
+    expectScreenContainsElementWithText('Thank you for your payment!');
+  })
 })
 
 function clickButtonWithRegex(regex: RegExp) {
@@ -52,6 +67,11 @@ function fillInput(inputTestId: string, value: string) {
 }
 
 function expectScreenContainsElementWithText(expectedText: string) {
+  const reviewAndPay = screen.getByText(expectedText);
+  expect(reviewAndPay).toBeInTheDocument();
+}
+
+function expectScreenContainsElementWithRegex(expectedText: RegExp) {
   const reviewAndPay = screen.getByText(expectedText);
   expect(reviewAndPay).toBeInTheDocument();
 }
