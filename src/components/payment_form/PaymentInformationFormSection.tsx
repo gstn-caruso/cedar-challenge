@@ -48,17 +48,19 @@ export function PaymentInformationFormSection(props: PaymentFormContentInformati
 
     { props.isActive &&
         <form onSubmit={ handleSubmit }>
-            <CardNumberInput formContent={ formContent } onChange={ handleChange } firstRender={ firstRender }/>
+            <CardNumberInput formContent={ formContent } onChange={ handleChange } firstRender={ firstRender }
+                             isValid={ !firstRender && !!formContent.cardNumber }/>
             <div className="column">
                 <FormInput name={ 'expires' } value={ formContent.expires } type={ 'text' } title={ 'Expires (MM/YY)' } onChange={ handleChange }
-                           isMissing={ !firstRender && !formContent.expires } mask={InputMask.expires}/>
+                           isMissing={ !firstRender && !formContent.expires } mask={ InputMask.expires }
+                           isValid={ !firstRender && !!formContent.expires }/>
                 <FormInput name={ 'cvv' } value={ formContent.cvv } type={ 'text' } title={ 'Security code (CVV)' } onChange={ handleChange }
-                           isMissing={ !firstRender && !formContent.cvv } mask={InputMask.cvv}/>
+                           isMissing={ !firstRender && !formContent.cvv } mask={ InputMask.cvv } isValid={ !firstRender && !!formContent.cvv }/>
             </div>
             <FormInput name={ 'holderName' } value={ formContent.holderName } type={ 'text' } title={ 'Name on card' } onChange={ handleChange }
-                       isMissing={ !firstRender && !formContent.holderName } mask={""}/>
+                       isMissing={ !firstRender && !formContent.holderName } mask={ '' } isValid={ !firstRender && !!formContent.holderName }/>
             <FormInput name={ 'zip' } value={ formContent.zip } type={ 'text' } title={ 'ZIP code' } onChange={ handleChange }
-                       isMissing={ !firstRender && !formContent.zip } mask={""}/>
+                       isMissing={ !firstRender && !formContent.zip } mask={ '' } isValid={ !firstRender && !!formContent.zip }/>
 
             <SubmitButton onClick={ handleSubmit } label={ 'Continue' }/>
         </form>
