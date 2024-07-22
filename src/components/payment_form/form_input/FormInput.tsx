@@ -19,7 +19,7 @@ export function FormInput({ name, title, type, isMissing, isValid, value, onChan
     { title }
     <div className={ 'input-container' }>
       <ReactInputMask maskChar={ '' } mask={ mask } name={ name } className={ `${ isMissing ? 'error' : '' }` } type={ type } required={ true }
-                      value={ value } onChange={ onChange }/>
+                      value={ value } onChange={ onChange } data-testid={ name }/>
       { isMissing && <AlertCircle/> }
       { isValid && <CheckIcon/> }
     </div>
