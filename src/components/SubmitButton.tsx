@@ -1,10 +1,10 @@
-import { FormEvent }            from 'react';
+import { FormEvent } from 'react';
 
 interface SubmitButtonParams {
-  onClick: (event: FormEvent) => void;
+  onClick: Function;
   label: string;
 }
 
 export function SubmitButton(props: SubmitButtonParams) {
-  return <button onClick={ props.onClick } className={"SubmitButton"}>{ props.label }</button>;
+  return <button onClick={ props.onClick as (event: FormEvent) => void } className={ 'SubmitButton' }>{ props.label }</button>;
 }

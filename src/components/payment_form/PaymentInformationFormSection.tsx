@@ -1,5 +1,6 @@
 import { ChangeEventHandler, FormEvent, useState } from 'react';
 import { SubmitButton }                            from '../SubmitButton';
+import { blankFormInformation }                    from './BlankFormInformation';
 import { FormInput }                               from './form_input/FormInput';
 import { FormStepSectionTitle }                    from './FormStepSectionTitle';
 
@@ -17,13 +18,6 @@ export interface PaymentFormContentInformationProps {
 }
 
 export function PaymentInformationFormSection(props: PaymentFormContentInformationProps) {
-  const blankFormInformation: PaymentFormContentInformation = {
-    cardNumber: '',
-    expires: '',
-    cvv: '',
-    holderName: '',
-    zip: ''
-  };
   const [formContent, setFormContent] = useState<PaymentFormContentInformation>(blankFormInformation);
   const [firstRender, hasSubmitted] = useState(true);
 

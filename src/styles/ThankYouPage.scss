@@ -1,0 +1,15 @@
+@import "theme";
+
+.ThankYouPage {
+  margin-top: 6rem;
+
+  h1 {
+    color: $text-color;
+    font-weight: 700;
+    font-family: Georgia, serif;
+    font-size: 28px;
+    text-align: center;
+
+    margin: 1em;
+  }
+}

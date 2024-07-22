@@ -1,0 +1,31 @@
+@import "theme";
+
+.ConfirmationSection {
+  h2 {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Arial, sans-serif;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 14px;
+    color: $grey-text-color;
+    margin: 0 0 0.5rem;
+  }
+
+  .cardPreview {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 0.75rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: $dark-text-color;
+    }
+  }
+}
