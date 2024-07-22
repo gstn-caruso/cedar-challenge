@@ -1,4 +1,3 @@
-import { FormEvent }    from 'react';
 import { SubmitButton } from '../SubmitButton';
 import { VisaIcon }     from './VisaIcon';
 
